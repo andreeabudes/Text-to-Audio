@@ -42,7 +42,7 @@ def play_audio():
     global is_playing, is_paused
     if not is_playing:
         if not os.path.exists(audio_file):
-            print("No audio file found.")
+            print("No audio file found")
             generate_audio()
         pygame.mixer.music.load(audio_file)
         pygame.mixer.music.play()
@@ -51,26 +51,26 @@ def play_audio():
     elif is_paused:
         pygame.mixer.music.unpause()
         is_paused = False
-        print("Resumed audio")
+        print("Resume audio")
 
 def pause_audio():
     global is_paused
     if is_playing and not is_paused:
         pygame.mixer.music.pause()
         is_paused = True
-        print("Audio paused.")
+        print("Audio paused")
 
 def stop_audio():
     global is_playing, is_paused
     pygame.mixer.music.stop()
     is_playing = False
     is_paused = False
-    print("Audio stopped.")
+    print("Audio stopped")
 
 def open_pdf():
     file_path = filedialog.askopenfilename(filetypes=[("PDF Files", "*.pdf")])
     if file_path:
-        print(f"Fișier selectat: {file_path}")
+        print(f"Selected file: {file_path}")
         load_pdf(file_path)
         generate_audio()
 
